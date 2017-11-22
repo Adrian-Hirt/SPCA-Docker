@@ -1,0 +1,1 @@
+docker run -it -v %cd:/spca -i adrianhirt/spca_base:1.0 /bin/bash
