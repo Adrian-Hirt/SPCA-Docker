@@ -9,7 +9,7 @@ This is a docker image which you can use to complete the excercises of the cours
 - nano
 - vim
 - build-essentials (gcc)
-- gdc
+- gdb
 
 ## Good to know
 
@@ -18,10 +18,10 @@ You need to be install Docker, follow this tutorial to do so: [Docker Tutorial](
 Once you installed docker, just copy the run.bat to your pc, drop it in the directory with the files for the excercise, and doubleclick (execute) it. It will execute the following command:
 
 ```
-docker run -it -v %cd:/spca -i adrianhirt/spca_base:1.0 /bin/bash
+docker run -it --security-opt seccomp=unconfined -v %cd%:/spca -i adrianhirt/spca_base:1.0 /bin/bash
 ```
 
-This starts a docker container with the spca_base image, and mounts the current directory to the spca folder in the debian container.
+This starts a docker container with the spca_base image, and mounts the current directory to the spca folder in the debian container. It also uses the seccomp=unconfined flag, which allows the programs (e.g. the attack lab) to be executed without randomized adresses.
 
 ## Build the image
 
